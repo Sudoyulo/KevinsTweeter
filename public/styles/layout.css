@@ -19,6 +19,8 @@ body {
   background-color: #f4f1ec;
   font-size: 24px;
   font-family: "Source Sans Pro";
+  background-image: url(../images/asfalt-dark.png);
+  background-color: lightskyblue;
 }
 
 /*
@@ -40,27 +42,29 @@ nav {
   align-items: center;
   color: #FFFFFF;
  }
+/*
+position: absolute;
+*/
 
 header {
-  position: absolute;
   top: 120px;
   height: 400px;
   display: flex;
   width: 100%;
   justify-content: center;
   align-items: center;
-  background-color: lightskyblue;
+  
   flex-direction: column;
-  background-image: url(../images/asfalt-dark.png);
+  
 
 }
 
 main {
-  position: absolute;
   width: 90%;
   display: flex;
   justify-content: center;
   color: #FFFFFF;
+  flex-direction: column;
 }
 
  .logo {
@@ -91,4 +95,10 @@ main {
  .fa-angle-double-down {
   color: lightsteelblue;
 
+ }
+
+ .header-main-content {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
  }
