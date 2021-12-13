@@ -18,8 +18,77 @@ body {
   color: #545149;
   background-color: #f4f1ec;
   font-size: 24px;
+  font-family: "Source Sans Pro";
 }
 
 /*
  * Additional CSS can be defined below or in other CSS files, as per instructions
  */
+
+* {
+  box-sizing: border-box;
+}
+
+nav {
+  
+  background-color: #4056a1;
+  padding-left: 1.5em;
+  padding-right: 1.5em;
+  height: 120px;
+  justify-content: space-between;
+  display: flex;
+  align-items: center;
+  color: #FFFFFF;
+ }
+
+header {
+  position: absolute;
+  top: 120px;
+  height: 400px;
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  background-color: lightskyblue;
+  flex-direction: column;
+  background-image: url(../images/asfalt-dark.png);
+
+}
+
+main {
+  position: absolute;
+  width: 90%;
+  display: flex;
+  justify-content: center;
+  color: #FFFFFF;
+}
+
+ .logo {
+  display: flex;
+  font-family: "Bungee";
+  justify-content: center;
+  align-items: center;
+  
+
+ }
+ .addTweet {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  align-items: center;
+  
+
+ }
+
+ b {
+  font-weight: bolder;
+ }
+
+ .double-down {
+  height: 30px;
+ }
+
+ .fa-angle-double-down {
+  color: lightsteelblue;
+
+ }
