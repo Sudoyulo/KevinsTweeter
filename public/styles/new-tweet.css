@@ -48,20 +48,43 @@
 .single-tweet {
   border: solid #967aa1;
   margin-bottom: 10px;
-  padding-left: 10px;
-  padding-right: 10px;
+  padding: 10px
 }
 
-.socials {
-  font-size: x-small;
+.tweet-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  align-items: center;
+}
+
+.pp-and-handle {
+  display: flex;
+  align-items: center;
+}
+
+.profile-picture {
+  width: 50px;
+  height: auto;
+  margin-right: 10px;
 }
 
 .tweet-contents {
-
   border-bottom: 2px solid #967aa1;
+  padding-bottom: 10px;
+}
+
+.socials {
+  font-size: small;
+}
+
+i:hover {
+
+  color: #d5c6e0;
 }
 
 footer {
   display: flex;
   justify-content: space-between;
+  margin-top: 10px;
 }
