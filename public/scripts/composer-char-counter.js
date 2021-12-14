@@ -1,20 +1,20 @@
-console.log("Document has loaded");
-
 
 $(document).ready(function() {
-  console.log("Document is ready");
-  let numbersLeft = 0;
+  const $tweetText = $("#tweet-text"); //the text box
+  const $counter = $(".counter");
   
-  $("#tweet-text").keypress(function(input) {
-    numbersLeft = 139 - input.target.value.length;
-    console.log(numbersLeft)
+  $tweetText.on("keyup", (event) => {
+    // console.log(event.target.value) //the input field
+    let inputLength = event.target.value.length;
+    $counter.val(140-inputLength)
 
-    if (numbersLeft > 140) {
-      console.log("too much");
+    if (inputLength > 140) {
+      $counter.css("color", "red");
+    } else {
+      $counter.css("color", "#F5E6E8");
     }
-    if (numbersLeft < 1) {
-      console.log("not enough");
-    }
+
+
 
   });
 });

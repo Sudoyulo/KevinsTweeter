@@ -42,14 +42,13 @@ nav {
   align-items: center;
   color: #FFFFFF;
  }
-/*
-position: absolute;
+/* stretch
+position: fixed;
 */
 
 .header-main-content {
   display: flex;
   justify-content: space-between;
- 
  }
 
 header {
