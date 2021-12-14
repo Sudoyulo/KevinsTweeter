@@ -1,0 +1,41 @@
+.new-tweet {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  padding-right: 1.5em;
+}
+
+#tweet-text {
+  width: 100%;
+  display: flex;
+  box-sizing: border-box;
+  border: none;
+  border-bottom: 2px solid black;
+  line-height: 1;
+  margin-bottom: 10px;
+  font-size: 20px;
+  resize: none;
+  height: 30px;
+}
+
+.submit-button {
+  display: flex;
+    background-color: #4056a1;
+    border: none;
+    color: #FFFFFF;
+    padding: 10px;
+    text-align: center;
+    font-size: 20px;
+    font-family: "Bungee";
+}
+
+.tweet-and-rmtxt {  /*submit and remaining count*/
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.counter {/* remaining count*/
+  display: flex;
+  font-family: "Bungee";
+}
