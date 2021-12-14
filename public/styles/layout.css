@@ -63,28 +63,14 @@ header {
   flex-direction: column;
 }
 
- .logo {
-  display: flex;
-  font-family: "Bungee";
-  justify-content: center;
-  align-items: center;
- }
 
- .addTweet {
-  display: flex;
-  flex-direction: column;
-  margin: 0;
-  align-items: center;
- }
+
 
  b {/*write*/
   font-weight: bolder;
  }
 
- .fa-angle-double-down {
-  color: lightsteelblue;
 
- }
 
  main {
   width: 90%;
