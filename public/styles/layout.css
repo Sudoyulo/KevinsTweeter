@@ -25,6 +25,7 @@ body {
   font-family: "Source Sans Pro";
   background-image: url(../images/asfalt-dark.png);
   background-color: lightskyblue;
+  color: #FFFFFF;
 }
 
 /*
@@ -48,8 +49,8 @@ position: absolute;
 
 .header-main-content {
   display: flex;
-  flex-direction: row;
-  align-items: center;
+  justify-content: space-between;
+ 
  }
 
 header {
@@ -76,21 +77,64 @@ header {
   align-items: center;
  }
 
- .write {/*write*/
+ b {/*write*/
   font-weight: bolder;
  }
 
- .double-down {
+ .fa-angle-double-down {
   color: lightsteelblue;
 
  }
-
- 
 
  main {
   width: 90%;
   display: flex;
   justify-content: center;
-  color: #FFFFFF;
   flex-direction: column;
+ 
+}
+
+.new-tweet {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  padding-right: 1.5em;
+}
+
+#tweet-text {
+  width: 100%;
+  margin: 5px;
+  display: flex;
+  box-sizing: border-box;
+  border: none;
+  border-bottom: 2px solid black;
+}
+
+.tweet-and-rmtxt {
+  display: flex;
+  justify-content: space-between;
+}
+
+.submit-button {
+  display: flex;
+    background-color: #4056a1;
+    border: none;
+    color: #FFFFFF;
+    padding: 5px;
+    text-align: center;
+    font-size: 20px;
+    font-family: "Bungee";
+    margin-left: 5px;
+}
+
+
+.counter {
+  display: flex;
+  align-items: center;
+  font-family: "Bungee";
+}
+
+.container {
+  display: flex;
+  margin-right: 10%;
 }
