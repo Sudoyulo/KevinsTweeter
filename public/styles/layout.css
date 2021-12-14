@@ -14,6 +14,10 @@ html {
  * Global layout stuff
  */
 
+ * {
+  box-sizing: border-box;
+}
+
 body {
   color: #545149;
   background-color: #f4f1ec;
@@ -25,14 +29,10 @@ body {
 
 /*
  * Additional CSS can be defined below or in other CSS files, as per instructions
+ By order of appearance
  */
 
-* {
-  box-sizing: border-box;
-}
-
-nav {
-  
+nav {  
   background-color: #4056a1;
   padding-left: 1.5em;
   padding-right: 1.5em;
@@ -46,6 +46,12 @@ nav {
 position: absolute;
 */
 
+.header-main-content {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+ }
+
 header {
   top: 120px;
   height: 400px;
@@ -53,17 +59,6 @@ header {
   width: 100%;
   justify-content: center;
   align-items: center;
-  
-  flex-direction: column;
-  
-
-}
-
-main {
-  width: 90%;
-  display: flex;
-  justify-content: center;
-  color: #FFFFFF;
   flex-direction: column;
 }
 
@@ -72,33 +67,30 @@ main {
   font-family: "Bungee";
   justify-content: center;
   align-items: center;
-  
-
  }
+
  .addTweet {
   display: flex;
   flex-direction: column;
   margin: 0;
   align-items: center;
-  
-
  }
 
- b {
+ .write {/*write*/
   font-weight: bolder;
  }
 
  .double-down {
-  height: 30px;
- }
-
- .fa-angle-double-down {
   color: lightsteelblue;
 
  }
 
- .header-main-content {
+ 
+
+ main {
+  width: 90%;
   display: flex;
-  flex-direction: row;
-  align-items: center;
- }
+  justify-content: center;
+  color: #FFFFFF;
+  flex-direction: column;
+}

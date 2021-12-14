@@ -33,8 +33,8 @@
       <span class="logo"> tweeter 
       </span>
       <div class= "addTweet">
-        <p><b>Write</b> a new tweet</p>
-        <i class="fas fa-angle-double-down"></i>
+        <p><b class="write">Write</b> a new tweet</p>
+        <i class="double-down"></i>
       
       </div>
     </nav>
@@ -52,7 +52,17 @@
   </header>
 
     <main class="container">
-
+      <section class="new-tweet">
+        <h2>Compose Tweet</h2>
+        <form>
+          <label for="tweet-text">What are you humming about?</label>
+          <textarea name="text" id="tweet-text"></textarea>
+          <div>
+            <button type="submit">Tweet</button>
+            <output name="counter" class="counter" for="tweet-text">140</output>
+          </div>
+        </form>
+      </section>
       <p>This is the body. I am a tweet</p>
       <p>This is the body. I am another tweet</p>
 
