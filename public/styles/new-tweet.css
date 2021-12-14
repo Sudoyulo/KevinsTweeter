@@ -3,6 +3,7 @@
   justify-content: center;
   flex-direction: column;
   padding-right: 1.5em;
+  margin-bottom: 30px;
 }
 
 #tweet-text {
@@ -38,4 +39,29 @@
 .counter {/* remaining count*/
   display: flex;
   font-family: "Bungee";
+}
+
+.tweet-container {
+  margin-right: 1.5em;
+}
+
+.single-tweet {
+  border: solid #967aa1;
+  margin-bottom: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.socials {
+  font-size: x-small;
+}
+
+.tweet-contents {
+
+  border-bottom: 2px solid #967aa1;
+}
+
+footer {
+  display: flex;
+  justify-content: space-between;
 }
