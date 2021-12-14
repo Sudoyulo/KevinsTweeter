@@ -63,21 +63,19 @@ header {
   flex-direction: column;
 }
 
-
-
-
  b {/*write*/
   font-weight: bolder;
  }
 
 
+/*
+ *  main class
+ */
 
- main {
-  width: 90%;
+
+ .container {
   display: flex;
-  justify-content: center;
-  flex-direction: column;
- 
+  margin-right: 10%;
 }
 
 .new-tweet {
@@ -85,6 +83,13 @@ header {
   justify-content: center;
   flex-direction: column;
   padding-right: 1.5em;
+}
+
+ main {
+  width: 90%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
 }
 
 #tweet-text {
@@ -96,7 +101,7 @@ header {
   border-bottom: 2px solid black;
 }
 
-.tweet-and-rmtxt {
+.tweet-and-rmtxt {  /*submit and remaining count*/
   display: flex;
   justify-content: space-between;
 }
@@ -113,14 +118,9 @@ header {
     margin-left: 5px;
 }
 
-
-.counter {
+.counter {/* remaining count*/
   display: flex;
   align-items: center;
   font-family: "Bungee";
 }
 
-.container {
-  display: flex;
-  margin-right: 10%;
-}
