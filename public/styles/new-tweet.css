@@ -40,6 +40,8 @@
 
 #tweet-container {
   margin-right: 1.5em;
+  background: #FFFFFFE6;
+  
 }
 
 .single-tweet {
@@ -77,6 +79,11 @@
 
 i:hover {
   color: #d5c6e0;
+}
+
+.single-tweet:hover {
+  box-shadow: 5px 5px 5px #192a51; 
+  background-color: #FFFFFF;
 }
 
 footer {

@@ -23,6 +23,7 @@
 
     <!-- External JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/timeago.js/4.0.2/timeago.min.js"></script>
 
     <!-- App JS -->
     <script type="text/javascript" src="/scripts/client.js"></script>
@@ -55,20 +56,15 @@
       <section class="new-tweet">
         <h2>Compose Tweet</h2>
         <form action="/tweets" id="formData" method="post">
-          <textarea type="text" name="text" id="tweet-text" placeholder="What are you humming about?" wrap="hard" cols="50" rows="1" ></textarea>
+          <textarea type="text" name="text" id="tweet-text" placeholder="What are you humming about?" wrap="hard"></textarea>
           <div class="tweet-and-rmtxt">
-            <button class="submit-button" onSubmit="submitForm()" type="submit">Tweet</button>
+            <button class="submit-button" onSubmit="createTweetElement()" type="submit">Tweet</button>
             <output name="counter" class="counter" for="tweet-text">140</output>
           </div>
         </form>
       </section>
-
-      <div id="newTweetInsert">
-
-      </div>
-
-
       <section id="tweet-container">
+
         <article class="single-tweet">
           <div class ="tweet-header">
             <div class ="pp-and-handle">
@@ -89,18 +85,18 @@
             </div>
           </footer>
         </article>
+        
       </section>
 
     </main>
   </div>
   <script>
 
-    $("#formData").submit(function (e) { 
-      e.preventDefault;
+    $("#formData").submit(function () { 
       submitForm();
     })
   function submitForm() {
-    document.getElementById('newTweetInsert').innerHTML = `<article class="tweet">Hello world </article>`;
+    $('#tweet-container').append(`<article class="tweet">Hello world </article>`);
   }
 
   
