@@ -39,15 +39,14 @@
 }
 
 #tweet-container {
-  margin-right: 1.5em;
-  background: #FFFFFFE6;
-  
+  margin-right: 1.5em;  
 }
 
 .single-tweet {
   border: solid #967aa1;
   margin-bottom: 10px;
-  padding: 10px
+  padding: 10px;
+  background: #FFFFFFE6;
 }
 
 .tweet-header {
