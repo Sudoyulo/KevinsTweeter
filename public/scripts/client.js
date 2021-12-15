@@ -21,7 +21,7 @@ $(document).ready(function() {
     <p class="tweet-contents">${tweetData.content.text}</p>
     <footer>
       <div>
-        <p class="time-ago"> ${tweetData.created_at}</p>
+        <p class="time-ago"> timeago.format(${tweetData.created_at})</p>
       </div>
       <div class="socials">
         <i class="fas fa-thumbs-up"></i>
@@ -30,25 +30,43 @@ $(document).ready(function() {
       </div>
     </footer>
   </article>
-  `
-
+  `;
     return post;
-};
-
+  };
 });
 
-const tweetData = {
-  "user": {
-    "name": "Newton",
-    "avatars": "https://i.imgur.com/73hZDYK.png",
+const data = [
+  {
+    "user": {
+      "name": "Newton",
+      "avatars": "https://i.imgur.com/73hZDYK.png"
+      ,
       "handle": "@SirIsaac"
     },
-  "content": {
+    "content": {
       "text": "If I have seen further it is by standing on the shoulders of giants"
     },
-  "created_at": 1461116232227
-}
+    "created_at": 1461116232227
+  },
+  {
+    "user": {
+      "name": "Descartes",
+      "avatars": "https://i.imgur.com/nlhLi3I.png",
+      "handle": "@rd" },
+    "content": {
+      "text": "Je pense , donc je suis"
+    },
+    "created_at": 1461113959088
+  }
+];
 
-const $tweet = createTweetElement(tweetData);
-console.log($tweet);
-$('#tweet-container').append($tweet); 
+const renderTweets = function(tweets) {
+  // loops through tweets
+  // calls createTweetElement for each tweet
+  // takes return value and appends it to the tweets container
+
+  for (const tweet of data) {
+    const $tweet = createTweetElement(tweet);
+    $('#tweet-container').append($tweet);
+  }
+};
