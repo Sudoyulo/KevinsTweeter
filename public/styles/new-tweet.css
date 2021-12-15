@@ -8,15 +8,11 @@
 
 #tweet-text {
   width: 100%;
-  display: flex;
-  box-sizing: border-box;
   border: none;
   border-bottom: 2px solid black;
-  line-height: 1;
   margin-bottom: 10px;
   font-size: 20px;
   resize: none;
-  height: 30px;
 }
 
 .submit-button {
@@ -42,7 +38,7 @@
   font-family: "Bungee";
 }
 
-.tweet-container {
+#tweet-container {
   margin-right: 1.5em;
 }
 

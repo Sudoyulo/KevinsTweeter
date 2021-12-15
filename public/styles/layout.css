@@ -22,7 +22,6 @@ body {
   font-size: 24px;
   font-family: "Source Sans Pro";
   background-image: url(../images/dark-geometric.png);
-  background-color: #F5E6E8;
   color: #FFFFFF;
 }
 
@@ -40,6 +39,9 @@ nav {
   display: flex;
   align-items: center;
   color: #FFFFFF;
+  position: fixed;
+  width: 100%;
+  z-index: 1;
  }
 /* stretch
 position: fixed;
@@ -69,6 +71,7 @@ h2 {
   margin-bottom: 10px;
   font-weight: bolder;
   font-size: larger;
+  color: #192a51;
 }
 
 .time-ago
@@ -87,12 +90,11 @@ h2 {
 
  .container {
   margin-left: 50%;
-  margin-top: 3em;
+  margin-top: 7em;
   margin-right: 5%;
-  z-index: 1;
 }
 
- main {
+ main {  /*html color scheme*/
   width: 90%;
   color: #192a51;
 }

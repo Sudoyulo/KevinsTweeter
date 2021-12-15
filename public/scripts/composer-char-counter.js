@@ -11,7 +11,7 @@ $(document).ready(function() {
     if (inputLength > 140) {
       $counter.css("color", "red");
     } else {
-      $counter.css("color", "#F5E6E8");
+      $counter.css("color", "#192a51");
     }
 
 

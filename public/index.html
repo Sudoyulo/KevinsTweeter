@@ -54,27 +54,29 @@
 
       <section class="new-tweet">
         <h2>Compose Tweet</h2>
-        <form action= "/tweets/" method="post">
+        <form action="/tweets" id="formData" method="post">
           <textarea type="text" name="text" id="tweet-text" placeholder="What are you humming about?" wrap="hard" cols="50" rows="1" ></textarea>
           <div class="tweet-and-rmtxt">
-            <button class="submit-button" type="submit">Tweet</button>
+            <button class="submit-button" onSubmit="submitForm()" type="submit">Tweet</button>
             <output name="counter" class="counter" for="tweet-text">140</output>
           </div>
         </form>
       </section>
 
-      <section class="tweet-container">
+      <div id="newTweetInsert">
+
+      </div>
+
+
+      <section id="tweet-container">
         <article class="single-tweet">
           <div class ="tweet-header">
             <div class ="pp-and-handle">
               <img class= "profile-picture" src="https://i.imgur.com/73hZDYK.png" />
-              <p> Firstname</p>
+              <p class="firstName"> Firstname</p>
             </div>
-            <div class="mention">
-              <p>@userID</p>
-            </div>
+            <p class="mention"> @userID </p>
           </div>
-
           <p class="tweet-contents">I am a tweet</p>
           <footer>
             <div>
@@ -91,5 +93,17 @@
 
     </main>
   </div>
+  <script>
+
+    $("#formData").submit(function (e) { 
+      e.preventDefault;
+      submitForm();
+    })
+  function submitForm() {
+    document.getElementById('newTweetInsert').innerHTML = `<article class="tweet">Hello world </article>`;
+  }
+
+  
+  </script>
   </body>
 </html>
