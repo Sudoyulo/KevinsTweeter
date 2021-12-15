@@ -55,15 +55,15 @@
       <section class="new-tweet">
         <h2>Compose Tweet</h2>
         <form action= "/tweets/" method="post">
-          <textarea type="text" name="text" id="tweet-text" placeholder="What are you humming about?"></textarea>
+          <textarea type="text" name="text" id="tweet-text" placeholder="What are you humming about?" wrap="hard" cols="50" rows="1" ></textarea>
           <div class="tweet-and-rmtxt">
             <button class="submit-button" type="submit">Tweet</button>
             <output name="counter" class="counter" for="tweet-text">140</output>
           </div>
         </form>
       </section>
-      <article class="tweet-container">
-        
+
+      <section class="tweet-container">
         <article class="single-tweet">
           <div class ="tweet-header">
             <div class ="pp-and-handle">
@@ -73,24 +73,21 @@
             <div class="mention">
               <p>@userID</p>
             </div>
-
           </div>
 
           <p class="tweet-contents">I am a tweet</p>
           <footer>
-            <h6>
+            <div>
               <p class="time-ago"> 10 days ago</p>
-            </h6>
+            </div>
             <div class="socials">
               <i class="fas fa-thumbs-up"></i>
               <i class="fas fa-thumbs-down"></i>
               <i class="fas fa-retweet"></i>
             </div>
           </footer>
-
         </article>
-
-      </article>
+      </section>
 
     </main>
   </div>

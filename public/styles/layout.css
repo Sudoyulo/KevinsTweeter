@@ -71,12 +71,10 @@ h2 {
   font-size: larger;
 }
 
-h6 {
+.time-ago
+{
   font-size: x-small;
 }
-
-
-
 
 /*
  *  main class
@@ -96,5 +94,5 @@ h6 {
 
  main {
   width: 90%;
-  color: #F5E6E8;
+  color: #192a51;
 }

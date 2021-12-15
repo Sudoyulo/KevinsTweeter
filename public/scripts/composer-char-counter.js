@@ -6,7 +6,7 @@ $(document).ready(function() {
   $tweetText.on("keyup", (event) => {
     // console.log(event.target.value) //the input field
     let inputLength = event.target.value.length;
-    $counter.val(140-inputLength)
+    $counter.val(140 - inputLength);
 
     if (inputLength > 140) {
       $counter.css("color", "red");
