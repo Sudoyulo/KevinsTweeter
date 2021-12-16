@@ -8,47 +8,47 @@
 $(document).ready(function() {
 
   const loadTweets = async() => {
-
-    const allPosts = await $.ajax({   //does this return as json?
+    
+    const allPosts = await $.ajax({
       type: "GET",
       url: "/tweets",
     });
-  
+    
     renderTweets(allPosts);
-
+    
   };
 
+  loadTweets();
+  
   $("#formTweet").submit((event) => {
     event.preventDefault();
 
-    let readyToSubmit = true;
     let formLength = $("#tweet-text").val().length;
-    // $("#tweet-text").text(formLength);
 
     console.log(formLength);
 
     if (formLength < 1) {
-      $(".error").text("Cannot submit empty tweet.").slideDown().delay(2500).hide(500);
-      readyToSubmit = false;
+      $(".error").html(`<i class="fas fa-rupee-sign"></i> &nbsp Cannot submit empty tweet. &nbsp <i class="fas fa-yen-sign"></i>`
+      ).slideDown().delay(2500).hide(500);
+
       return;
     } else if (formLength > 140) {
-      $(".error").text("Tweet too long.").slideDown().delay(2500).hide(500);
-      readyToSubmit = false;
+      $(".error").html(`<i class="fas fa-rupee-sign"></i> &nbsp Tweet too long. &nbsp <i class="fas fa-yen-sign"></i>`
+      ).slideDown().delay(2500).hide(500);
+
       return;
     }
     
-    if (readyToSubmit) {
-      const formData = $("#formTweet").serialize();
+    const formData = $("#formTweet").serialize();
 
-      $.ajax({
-        type: "POST",
-        url: "/tweets",
-        data: formData,
-        success: loadTweets
-      });
+    $.ajax({
+      type: "POST",
+      url: "/tweets",
+      data: formData,
+      success: loadTweets
+    });
 
-      $("#tweet-text").val("");
-    }
+    $("#tweet-text").val("");
 
   });
 

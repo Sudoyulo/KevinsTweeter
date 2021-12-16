@@ -6,6 +6,15 @@
   margin-bottom: 30px;
 }
 
+.error {
+  display: flex;
+  justify-content: center;
+  color: #4056a1;
+  background-color: #F44949;
+  border-radius: 25px;
+  margin-bottom: 10px;
+}
+
 #tweet-text {
   width: 100%;
   border: none;
