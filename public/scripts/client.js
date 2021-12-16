@@ -13,11 +13,12 @@ $(document).ready(function() {
   });
 
   $(".back-to-top").click(() => {
-
     window.scroll(0, 0);
   });
 
 
+
+  
   const loadTweets = async() => {
     
     const allPosts = await $.ajax({
