@@ -18,7 +18,7 @@ $(document).ready(function() {
 
 
 
-  
+
   const loadTweets = async() => {
     
     const allPosts = await $.ajax({
@@ -60,7 +60,7 @@ $(document).ready(function() {
     $(".counter").val("140");
 
   });
-
+ 
 });
 
 const escape = function (str) {
