@@ -5,62 +5,11 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 
-// const data = [
-//   {
-//     "user": {
-//       "name": "Newton",
-//       "avatars": "https://i.imgur.com/73hZDYK.png"
-//       ,
-//       "handle": "@SirIsaac"
-//     },
-//     "content": {
-//       "text": "If I have seen further it is by standing on the shoulders of giants"
-//     },
-//     "created_at": 1461116232227
-//   },
-//   {
-//     "user": {
-//       "name": "Descartes",
-//       "avatars": "https://i.imgur.com/nlhLi3I.png",
-//       "handle": "@rd" },
-//     "content": {
-//       "text": "Je pense , donc je suis"
-//     },
-//     "created_at": 1461113959088
-//   }
-// ];
-
 $(document).ready(function() {
 
-  $("#formTweet").submit((event) => {
-    event.preventDefault();
+  const loadTweets = async() => {
 
-    let readyToSubmit = true;
-    const formData = $("#formTweet").serialize();
-  
-    console.log(formData.length)
-
-    if (formData.length < 6) {
-      alert("Your tweet is empty");
-      readyToSubmit = false;
-    } else if (formData.length > 140) {
-      alert("Your tweet is too long");
-      readyToSubmit = false;
-    }
-
-    if (readyToSubmit) {
-      $.ajax({
-        type: "POST",
-        url: "/tweets",
-        data: formData
-      });
-    }
-
-  });
-
-  const loadTweets = () => {
-
-    const allPosts = $.ajax({   //does this return as json?
+    const allPosts = await $.ajax({   //does this return as json?
       type: "GET",
       url: "/tweets",
     });
@@ -69,16 +18,44 @@ $(document).ready(function() {
 
   };
 
-  loadTweets(data);
+  $("#formTweet").submit((event) => {
+    event.preventDefault();
+
+    let readyToSubmit = true;
+    let formLength = $("#tweet-text").val().length;
+    
+    console.log(formLength);
+
+
+    if (formLength < 1) {
+      alert("Your tweet is empty");
+      readyToSubmit = false;
+    } else if (formLength > 140) {
+      alert("Your tweet is too long");
+      readyToSubmit = false;
+    }
+    
+    if (readyToSubmit) {
+      const formData = $("#formTweet").serialize();
+      $.ajax({
+        type: "POST",
+        url: "/tweets",
+        data: formData,
+        success: loadTweets
+      });
+
+      $("#tweet-text").val("");
+    }
+
+  });
 
 });
 
 
 
-
 const renderTweets = function(tweets) {
 
-  const $container = $('#tweet-container');
+  const $container = $('#tweet-container').empty();
 
   for (const tweet of tweets) {
     const $tweet = createTweetElement(tweet);
