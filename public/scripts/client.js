@@ -5,49 +5,83 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 
-// document.getElementById('tweet-container').innerHTML = `<article class="tweet">Hello world</article>`;
-
-const data = [
-  {
-    "user": {
-      "name": "Newton",
-      "avatars": "https://i.imgur.com/73hZDYK.png"
-      ,
-      "handle": "@SirIsaac"
-    },
-    "content": {
-      "text": "If I have seen further it is by standing on the shoulders of giants"
-    },
-    "created_at": 1461116232227
-  },
-  {
-    "user": {
-      "name": "Descartes",
-      "avatars": "https://i.imgur.com/nlhLi3I.png",
-      "handle": "@rd" },
-    "content": {
-      "text": "Je pense , donc je suis"
-    },
-    "created_at": 1461113959088
-  }
-];
+// const data = [
+//   {
+//     "user": {
+//       "name": "Newton",
+//       "avatars": "https://i.imgur.com/73hZDYK.png"
+//       ,
+//       "handle": "@SirIsaac"
+//     },
+//     "content": {
+//       "text": "If I have seen further it is by standing on the shoulders of giants"
+//     },
+//     "created_at": 1461116232227
+//   },
+//   {
+//     "user": {
+//       "name": "Descartes",
+//       "avatars": "https://i.imgur.com/nlhLi3I.png",
+//       "handle": "@rd" },
+//     "content": {
+//       "text": "Je pense , donc je suis"
+//     },
+//     "created_at": 1461113959088
+//   }
+// ];
 
 $(document).ready(function() {
 
-  renderTweets(data);
+  $("#formTweet").submit((event) => {
+    event.preventDefault();
+
+    let readyToSubmit = true;
+    const formData = $("#formTweet").serialize();
+  
+    console.log(formData.length)
+
+    if (formData.length < 6) {
+      alert("Your tweet is empty");
+      readyToSubmit = false;
+    } else if (formData.length > 140) {
+      alert("Your tweet is too long");
+      readyToSubmit = false;
+    }
+
+    if (readyToSubmit) {
+      $.ajax({
+        type: "POST",
+        url: "/tweets",
+        data: formData
+      });
+    }
+
+  });
+
+  const loadTweets = () => {
+
+    const allPosts = $.ajax({   //does this return as json?
+      type: "GET",
+      url: "/tweets",
+    });
+  
+    renderTweets(allPosts);
+
+  };
+
+  loadTweets(data);
 
 });
 
+
+
+
 const renderTweets = function(tweets) {
-  // loops through tweets
-  // calls createTweetElement for each tweet
-  // takes return value and appends it to the tweets container
 
   const $container = $('#tweet-container');
 
   for (const tweet of tweets) {
     const $tweet = createTweetElement(tweet);
-    // console.log($tweet);
     $container.prepend($tweet);
   }
 };
@@ -68,8 +102,8 @@ const createTweetElement = (tweetData) => {
       <p class="time-ago"> ${timeago.format(tweetData.created_at)}</p>
     </div>
     <div class="socials">
-      <i class="fas fa-thumbs-up"></i>
-      <i class="fas fa-thumbs-down"></i>
+      <i class="fas fa-thumbs-up"></i> &nbsp
+      <i class="fas fa-thumbs-down"></i>&nbsp
       <i class="fas fa-retweet"></i>
     </div>
   </footer>
