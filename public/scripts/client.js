@@ -23,20 +23,23 @@ $(document).ready(function() {
 
     let readyToSubmit = true;
     let formLength = $("#tweet-text").val().length;
-    
+    // $("#tweet-text").text(formLength);
+
     console.log(formLength);
 
-
     if (formLength < 1) {
-      alert("Your tweet is empty");
+      $(".error").text("Cannot submit empty tweet.").slideDown().delay(2500).hide(500);
       readyToSubmit = false;
+      return;
     } else if (formLength > 140) {
-      alert("Your tweet is too long");
+      $(".error").text("Tweet too long.").slideDown().delay(2500).hide(500);
       readyToSubmit = false;
+      return;
     }
     
     if (readyToSubmit) {
       const formData = $("#formTweet").serialize();
+
       $.ajax({
         type: "POST",
         url: "/tweets",
@@ -51,7 +54,13 @@ $(document).ready(function() {
 
 });
 
+const escape = function (str) {
+  let div = document.createElement("div");
+  div.appendChild(document.createTextNode(str));
+  return div.innerHTML;
+};
 
+console.log(escape("<script>alert('hi')</script>"));
 
 const renderTweets = function(tweets) {
 
@@ -73,7 +82,7 @@ const createTweetElement = (tweetData) => {
     </div>
     <p class="mention"> ${tweetData.user.handle} </p>
   </div>
-  <p class="tweet-contents">${tweetData.content.text}</p>
+  <p class="tweet-contents">${escape(tweetData.content.text)}</p>
   <footer>
     <div>
       <p class="time-ago"> ${timeago.format(tweetData.created_at)}</p>

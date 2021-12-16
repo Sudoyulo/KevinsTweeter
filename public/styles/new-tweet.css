@@ -13,6 +13,8 @@
   margin-bottom: 10px;
   font-size: 20px;
   resize: none;
+  white-space: pre-wrap;
+  overflow-wrap: break-word;
 }
 
 .submit-button {
