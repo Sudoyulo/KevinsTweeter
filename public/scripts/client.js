@@ -7,16 +7,24 @@
 
 $(document).ready(function() {
 
-  $(".compose").click(() => {
+  $(".compose").click(() => { //if state
     $("#tweet-text").focus();
-    console.log("click");
   });
 
   $(".back-to-top").click(() => {
     window.scroll(0, 0);
   });
 
+  $(window).scroll(() => {
 
+    scrollPosition = $(this).scrollTop();
+    if (scrollPosition >= 500) {
+      $(".back-to-top").css("visibility","visible");
+    } else {
+      $(".back-to-top").css("visibility","hidden");
+    }
+
+  });
 
 
   const loadTweets = async() => {
@@ -36,8 +44,6 @@ $(document).ready(function() {
     event.preventDefault();
 
     let formLength = $("#tweet-text").val().trim().length;
-
-    console.log(formLength);
 
     if (formLength < 1) {
       $(".error").html(`<i class="fas fa-rupee-sign"></i> &nbsp Cannot submit empty tweet &nbsp <i class="fas fa-yen-sign"></i>`).slideDown().delay(2500).slideUp(500);
@@ -68,8 +74,6 @@ const escape = function (str) {
   div.appendChild(document.createTextNode(str));
   return div.innerHTML;
 };
-
-console.log(escape("<script>alert('hi')</script>"));
 
 const renderTweets = function(tweets) {
 
