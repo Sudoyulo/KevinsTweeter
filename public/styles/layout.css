@@ -97,3 +97,32 @@ h2 {
   width: 90%;
   color: #192a51;
 }
+
+
+@media all and (max-width: 800px){
+
+  header {
+    display: flex;
+    margin-left: 0px;
+    margin-top: 120px;
+    position: static;
+  }
+
+  .header-main-content {
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .container {
+    position: static;
+    margin: 0%;
+    margin-top: 0px;
+  }
+
+  .avatar {
+    margin-top: 0px;
+  }
+
+
+}

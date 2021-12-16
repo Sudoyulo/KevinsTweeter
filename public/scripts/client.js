@@ -23,19 +23,15 @@ $(document).ready(function() {
   $("#formTweet").submit((event) => {
     event.preventDefault();
 
-    let formLength = $("#tweet-text").val().length;
+    let formLength = $("#tweet-text").val().trim().length;
 
     console.log(formLength);
 
     if (formLength < 1) {
-      $(".error").html(`<i class="fas fa-rupee-sign"></i> &nbsp Cannot submit empty tweet. &nbsp <i class="fas fa-yen-sign"></i>`
-      ).slideDown().delay(2500).hide(500);
-
+      $(".error").html(`<i class="fas fa-rupee-sign"></i> &nbsp Cannot submit empty tweet. &nbsp <i class="fas fa-yen-sign"></i>`).slideDown().delay(2500).slideUp(500);
       return;
     } else if (formLength > 140) {
-      $(".error").html(`<i class="fas fa-rupee-sign"></i> &nbsp Tweet too long. &nbsp <i class="fas fa-yen-sign"></i>`
-      ).slideDown().delay(2500).hide(500);
-
+      $(".error").html(`<i class="fas fa-rupee-sign"></i> &nbsp Tweet too long. &nbsp <i class="fas fa-yen-sign"></i>`).slideDown().delay(2500).slideUp(500);
       return;
     }
     
@@ -49,6 +45,7 @@ $(document).ready(function() {
     });
 
     $("#tweet-text").val("");
+    $(".counter").val("140");
 
   });
 
