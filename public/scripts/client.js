@@ -7,6 +7,17 @@
 
 $(document).ready(function() {
 
+  $(".compose").click(() => {
+    $("#tweet-text").focus();
+    console.log("click");
+  });
+
+  $(".back-to-top").click(() => {
+
+    window.scroll(0, 0);
+  });
+
+
   const loadTweets = async() => {
     
     const allPosts = await $.ajax({
@@ -28,10 +39,10 @@ $(document).ready(function() {
     console.log(formLength);
 
     if (formLength < 1) {
-      $(".error").html(`<i class="fas fa-rupee-sign"></i> &nbsp Cannot submit empty tweet. &nbsp <i class="fas fa-yen-sign"></i>`).slideDown().delay(2500).slideUp(500);
+      $(".error").html(`<i class="fas fa-rupee-sign"></i> &nbsp Cannot submit empty tweet &nbsp <i class="fas fa-yen-sign"></i>`).slideDown().delay(2500).slideUp(500);
       return;
     } else if (formLength > 140) {
-      $(".error").html(`<i class="fas fa-rupee-sign"></i> &nbsp Tweet too long. &nbsp <i class="fas fa-yen-sign"></i>`).slideDown().delay(2500).slideUp(500);
+      $(".error").html(`<i class="fas fa-rupee-sign"></i> &nbsp Tweet too long &nbsp <i class="fas fa-yen-sign"></i>`).slideDown().delay(2500).slideUp(500);
       return;
     }
     
