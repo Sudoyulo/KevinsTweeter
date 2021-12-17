@@ -105,11 +105,16 @@ h2 {
   right: 0;
   padding: 10px;
   color: black;
-  background-color: red;
+  background-color: #aaa1c8;
   margin: 10px;
   visibility: hidden;
+  border-radius: 10px;
 }
 
+.back-to-top:hover {
+
+  background-color: #d5c6e0;
+}
 
 @media all and (max-width: 800px){
 
@@ -130,6 +135,7 @@ h2 {
     position: static;
     margin: 0%;
     margin-top: 0px;
+    margin-left: 5%;
   }
 
   .avatar {

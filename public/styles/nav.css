@@ -24,3 +24,7 @@
   background: none;
   color: white;
 }
+
+.compose:hover {
+  box-shadow: 2px 2px 2px #192a51; 
+}

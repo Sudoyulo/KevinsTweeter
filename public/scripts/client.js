@@ -8,7 +8,16 @@
 $(document).ready(function() {
 
   $(".compose").click(() => { //if state
-    $("#tweet-text").focus();
+
+    if ($(".new-tweet").is(":visible")) {
+      $(".new-tweet").slideUp(500);
+
+    } else {
+      $(".new-tweet").focus();
+      $(".new-tweet").slideDown(500);
+      window.scroll(0, 0);
+    }
+
   });
 
   $(".back-to-top").click(() => {
@@ -18,14 +27,13 @@ $(document).ready(function() {
   $(window).scroll(() => {
 
     scrollPosition = $(this).scrollTop();
-    if (scrollPosition >= 500) {
+    if (scrollPosition >= 300) {
       $(".back-to-top").css("visibility","visible");
     } else {
       $(".back-to-top").css("visibility","hidden");
     }
 
   });
-
 
   const loadTweets = async() => {
     
