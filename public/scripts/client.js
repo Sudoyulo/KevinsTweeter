@@ -6,66 +6,44 @@
  */
 
 $(document).ready(function() {
-  $(".compose").click(() => { //if state
-    if ($(".new-tweet").is(":visible")) {
-      $(".new-tweet").slideUp(500);
-    } else {
-      $(".new-tweet").focus();
-      $(".new-tweet").slideDown(500);
-      window.scroll(0, 0);
-    }
-  });
+  $(".compose").click(hideTweetBox);
 
   $(".back-to-top").click(() => {
     window.scroll(0, 0);
   });
 
-  $(window).scroll(() => {
-    scrollPosition = $(this).scrollTop();
-    if (scrollPosition >= 300) {
-      $(".back-to-top").css("visibility","visible");
-    } else {
-      $(".back-to-top").css("visibility","hidden");
-    }
-  });
+  $(window).scroll(showBackToTop);
 
   loadTweets();
-  
-  $("#formTweet").submit((event) => {
-    event.preventDefault();
 
-    //removes whitespace from counted text
-    let formLength = $("#tweet-text").val().trim().length;
-
-    if (formLength < 1) {
-      $(".error").html(`<i class="fas fa-rupee-sign"></i> &nbsp Cannot submit empty tweet &nbsp <i class="fas fa-yen-sign"></i>`).slideDown().delay(2000).slideUp(500);
-      return;
-    } else if (formLength > 140) {
-      $(".error").html(`<i class="fas fa-rupee-sign"></i> &nbsp Tweet too long &nbsp <i class="fas fa-yen-sign"></i>`).slideDown().delay(2000).slideUp(500);
-      return;
-    }
-    
-    const formData = $("#formTweet").serialize();
-
-    $.ajax({
-      type: "POST",
-      url: "/tweets",
-      data: formData,
-      success: loadTweets
-    });
-
-    //resets tweet box and count
-    $("#tweet-text").val("");
-    $(".counter").val("140");
-
-  });
+  $("#formTweet").submit(submitTweet);
 });
 
+//hides box if compose button is clicked
+const hideTweetBox = () => { 
+  if ($(".new-tweet").is(":visible")) {
+    $(".new-tweet").slideUp(500);
+  } else {
+    $(".new-tweet").focus();
+    $(".new-tweet").slideDown(500);
+    window.scroll(0, 0);
+  }
+};
+
 //to remove risk of hacking
-const escape = function (str) {
+const escape = (str) => {
   let div = document.createElement("div");
   div.appendChild(document.createTextNode(str));
   return div.innerHTML;
+};
+
+const showBackToTop = () => {
+  scrollPosition = $(this).scrollTop();
+  if (scrollPosition >= 300) {
+    $(".back-to-top").css("visibility","visible");
+  } else {
+    $(".back-to-top").css("visibility","hidden");
+  }
 };
 
 const renderTweets = function(tweets) {
@@ -108,4 +86,32 @@ const createTweetElement = (tweetData) => {
 </article>
 `;
   return post;
+};
+
+const submitTweet = (event) => {
+  event.preventDefault();
+
+  //removes whitespace from counted text
+  let formLength = $("#tweet-text").val().trim().length;
+
+  if (formLength < 1) {
+    $(".error").html(`<i class="fas fa-rupee-sign"></i> &nbsp Cannot submit empty tweet &nbsp <i class="fas fa-yen-sign"></i>`).slideDown().delay(2000).slideUp(500);
+    return;
+  } else if (formLength > 140) {
+    $(".error").html(`<i class="fas fa-rupee-sign"></i> &nbsp Tweet too long &nbsp <i class="fas fa-yen-sign"></i>`).slideDown().delay(2000).slideUp(500);
+    return;
+  }
+  
+  const formData = $("#formTweet").serialize();
+
+  $.ajax({
+    type: "POST",
+    url: "/tweets",
+    data: formData,
+    success: loadTweets
+  });
+
+  //resets tweet box and count
+  $("#tweet-text").val("");
+  $(".counter").val("140");
 };
