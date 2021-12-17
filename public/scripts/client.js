@@ -6,18 +6,14 @@
  */
 
 $(document).ready(function() {
-
   $(".compose").click(() => { //if state
-
     if ($(".new-tweet").is(":visible")) {
       $(".new-tweet").slideUp(500);
-
     } else {
       $(".new-tweet").focus();
       $(".new-tweet").slideDown(500);
       window.scroll(0, 0);
     }
-
   });
 
   $(".back-to-top").click(() => {
@@ -25,25 +21,20 @@ $(document).ready(function() {
   });
 
   $(window).scroll(() => {
-
     scrollPosition = $(this).scrollTop();
     if (scrollPosition >= 300) {
       $(".back-to-top").css("visibility","visible");
     } else {
       $(".back-to-top").css("visibility","hidden");
     }
-
   });
 
   const loadTweets = async() => {
-    
     const allPosts = await $.ajax({
       type: "GET",
       url: "/tweets",
     });
-    
     renderTweets(allPosts);
-    
   };
 
   loadTweets();
@@ -74,7 +65,6 @@ $(document).ready(function() {
     $(".counter").val("140");
 
   });
- 
 });
 
 const escape = function (str) {
@@ -84,9 +74,7 @@ const escape = function (str) {
 };
 
 const renderTweets = function(tweets) {
-
   const $container = $('#tweet-container').empty();
-
   for (const tweet of tweets) {
     const $tweet = createTweetElement(tweet);
     $container.prepend($tweet);
@@ -118,6 +106,3 @@ const createTweetElement = (tweetData) => {
 `;
   return post;
 };
-
-
-

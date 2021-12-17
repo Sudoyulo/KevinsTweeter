@@ -15,5 +15,4 @@ const onChange = (event) => {
   } else {
     $counter.css("color", "#192a51");
   }
-
 };

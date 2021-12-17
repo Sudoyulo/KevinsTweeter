@@ -43,9 +43,6 @@ nav {
   width: 100%;
   z-index: 1;
  }
-/* stretch
-position: fixed;
-*/
 
 .header-main-content {
   display: flex;
@@ -63,7 +60,7 @@ header {  /*avatar and name*/
   position: fixed;
 }
 
- b {/*write*/
+b {/*write*/
   font-weight: bolder;
  }
 
@@ -82,12 +79,11 @@ h2 {
  *  main class
  */
 
-
 .avatar {
   margin-bottom: 10px;
 }
 
- .container {
+.container {
   margin-left: 50%;
   margin-top: 7em;
   margin-right: 5%;
@@ -112,12 +108,10 @@ h2 {
 }
 
 .back-to-top:hover {
-
   background-color: #d5c6e0;
 }
 
 @media all and (max-width: 800px){
-
   header {
     display: flex;
     margin-left: 0px;
@@ -141,5 +135,4 @@ h2 {
   .avatar {
     margin-top: 0px;
   }
-
 }
