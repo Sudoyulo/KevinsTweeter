@@ -20,17 +20,17 @@ $(document).ready(function() {
 });
 
 //hides box if compose button is clicked
-const hideTweetBox = () => { 
+const hideTweetBox = () => {
   if ($(".new-tweet").is(":visible")) {
     $(".new-tweet").slideUp(500);
   } else {
-    $(".new-tweet").focus();
     $(".new-tweet").slideDown(500);
+    $("#tweet-text").focus();
     window.scroll(0, 0);
   }
 };
 
-//to remove risk of hacking
+//prevents cross site scripting
 const escape = (str) => {
   let div = document.createElement("div");
   div.appendChild(document.createTextNode(str));

@@ -18,6 +18,7 @@ This repository is the starter code for the project: Students will fork and clon
 - Node 5.10.x or above
 - body-parser
 - chance
+- md5
 
 ## Stretch Features
 
@@ -25,13 +26,6 @@ This repository is the starter code for the project: Students will fork and clon
 displays and focuses on it if hidden
 - Back to Top button available after scrolling down 300px down
 - Vertical layout for windows smaller than 800px wide
-
-
-## Known bugs
-
-- Error text that appears when text count is 0 or over 140 queues and 
-will keep appearing until the queue is empty
-
 
 ## Screenshots
 
