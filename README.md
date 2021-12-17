@@ -35,4 +35,6 @@ will keep appearing until the queue is empty
 
 ## Screenshots
 
-!["Screenshot of URLs page"](https://github.com/Sudoyulo/tinyapp/blob/main/docs/short_url.png)
+!["Screenshot of Back to top Feature"](https://github.com/Sudoyulo/KevinsTweeter/blob/master/docs/BackToTop.png)
+!["Screenshot of Error Handling"](https://github.com/Sudoyulo/KevinsTweeter/blob/master/docs/TooLong.png)
+!["Screenshot of a wide view"](https://github.com/Sudoyulo/KevinsTweeter/blob/master/docs/WideView.png)
