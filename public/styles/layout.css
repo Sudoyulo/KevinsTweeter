@@ -48,7 +48,8 @@ nav {
   display: flex;
  }
 
-header {  /*avatar and name*/
+ /*avatar and name*/
+header {  
   top: 120px;
   height: 400px;
   display: flex;
@@ -60,7 +61,8 @@ header {  /*avatar and name*/
   position: fixed;
 }
 
-b {/*write*/
+/*write*/
+b {
   font-weight: bolder;
  }
 
@@ -90,7 +92,8 @@ h2 {
   width: -webkit-fill-available;
 }
 
- main {  /*html color scheme*/
+/*html color scheme*/
+ main {
   width: 90%;
   color: #192a51;
 }

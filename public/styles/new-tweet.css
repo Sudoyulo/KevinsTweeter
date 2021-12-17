@@ -41,14 +41,16 @@
     font-family: "Bungee";
 }
 
-.tweet-and-rmtxt {  /*submit and remaining count*/
+/*submit and remaining count*/
+.tweet-and-rmtxt {  
   display: flex;
   justify-content: space-between;
   margin-bottom: 10px;
   align-items: center;
 }
 
-.counter {/* remaining count*/
+/* remaining count*/
+.counter {
   display: flex;
   font-family: "Bungee";
 }

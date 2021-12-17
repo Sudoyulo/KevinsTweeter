@@ -29,26 +29,19 @@ $(document).ready(function() {
     }
   });
 
-  const loadTweets = async() => {
-    const allPosts = await $.ajax({
-      type: "GET",
-      url: "/tweets",
-    });
-    renderTweets(allPosts);
-  };
-
   loadTweets();
   
   $("#formTweet").submit((event) => {
     event.preventDefault();
 
+    //removes whitespace from counted text
     let formLength = $("#tweet-text").val().trim().length;
 
     if (formLength < 1) {
-      $(".error").html(`<i class="fas fa-rupee-sign"></i> &nbsp Cannot submit empty tweet &nbsp <i class="fas fa-yen-sign"></i>`).slideDown().delay(2500).slideUp(500);
+      $(".error").html(`<i class="fas fa-rupee-sign"></i> &nbsp Cannot submit empty tweet &nbsp <i class="fas fa-yen-sign"></i>`).slideDown().delay(2000).slideUp(500);
       return;
     } else if (formLength > 140) {
-      $(".error").html(`<i class="fas fa-rupee-sign"></i> &nbsp Tweet too long &nbsp <i class="fas fa-yen-sign"></i>`).slideDown().delay(2500).slideUp(500);
+      $(".error").html(`<i class="fas fa-rupee-sign"></i> &nbsp Tweet too long &nbsp <i class="fas fa-yen-sign"></i>`).slideDown().delay(2000).slideUp(500);
       return;
     }
     
@@ -61,12 +54,14 @@ $(document).ready(function() {
       success: loadTweets
     });
 
+    //resets tweet box and count
     $("#tweet-text").val("");
     $(".counter").val("140");
 
   });
 });
 
+//to remove risk of hacking
 const escape = function (str) {
   let div = document.createElement("div");
   div.appendChild(document.createTextNode(str));
@@ -79,6 +74,14 @@ const renderTweets = function(tweets) {
     const $tweet = createTweetElement(tweet);
     $container.prepend($tweet);
   }
+};
+
+const loadTweets = async() => {
+  const allPosts = await $.ajax({
+    type: "GET",
+    url: "/tweets",
+  });
+  renderTweets(allPosts);
 };
 
 const createTweetElement = (tweetData) => {
