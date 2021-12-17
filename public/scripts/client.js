@@ -7,18 +7,34 @@
 
 $(document).ready(function() {
 
-  $(".compose").click(() => {
-    $("#tweet-text").focus();
-    console.log("click");
+  $(".compose").click(() => { //if state
+
+    if ($(".new-tweet").is(":visible")) {
+      $(".new-tweet").slideUp(500);
+
+    } else {
+      $(".new-tweet").focus();
+      $(".new-tweet").slideDown(500);
+      window.scroll(0, 0);
+    }
+
   });
 
   $(".back-to-top").click(() => {
     window.scroll(0, 0);
   });
 
+  $(window).scroll(() => {
 
+    scrollPosition = $(this).scrollTop();
+    if (scrollPosition >= 300) {
+      $(".back-to-top").css("visibility","visible");
+    } else {
+      $(".back-to-top").css("visibility","hidden");
+    }
 
-  
+  });
+
   const loadTweets = async() => {
     
     const allPosts = await $.ajax({
@@ -36,8 +52,6 @@ $(document).ready(function() {
     event.preventDefault();
 
     let formLength = $("#tweet-text").val().trim().length;
-
-    console.log(formLength);
 
     if (formLength < 1) {
       $(".error").html(`<i class="fas fa-rupee-sign"></i> &nbsp Cannot submit empty tweet &nbsp <i class="fas fa-yen-sign"></i>`).slideDown().delay(2500).slideUp(500);
@@ -60,7 +74,7 @@ $(document).ready(function() {
     $(".counter").val("140");
 
   });
-
+ 
 });
 
 const escape = function (str) {
@@ -68,8 +82,6 @@ const escape = function (str) {
   div.appendChild(document.createTextNode(str));
   return div.innerHTML;
 };
-
-console.log(escape("<script>alert('hi')</script>"));
 
 const renderTweets = function(tweets) {
 
